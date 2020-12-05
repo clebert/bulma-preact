@@ -1,6 +1,6 @@
 {
   "name": "@clebert/bulma-preact",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A collection of Bulma components for use with Preact.",
   "bugs": {
     "url": "https://github.com/clebert/bulma-preact/issues"
