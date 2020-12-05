@@ -41,14 +41,14 @@ npm install @clebert/bulma-preact --save
 ```
 
 ```js
+import {BulmaTitle} from '@clebert/bulma-preact';
 import {h, render} from 'preact';
-import {BulmaTitle} from '@clebert/bulma-preact/lib/bulma-title';
 
 render(
   <BulmaTitle color="info" size="1">
     Hello, World!
   </BulmaTitle>,
-  document.querySelector('main#app')
+  document.querySelector('main#app')!
 );
 ```
 
