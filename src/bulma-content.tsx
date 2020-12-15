@@ -1,25 +1,12 @@
 import classnames from 'classnames';
 import {ComponentChildren, JSX, h} from 'preact';
+import {BulmaHiddenBreakpoint, isHidden} from './is-hidden';
 
 export interface BulmaContentProps {
   readonly children: ComponentChildren;
   readonly size?: BulmaContentSize;
-  readonly isHidden?: BulmaContentHiddenBreakpoint;
+  readonly isHidden?: BulmaHiddenBreakpoint;
 }
-
-/**
- * https://bulma.io/documentation/modifiers/responsive-helpers/#hide
- */
-export type BulmaContentHiddenBreakpoint =
-  | 'mobile'
-  | 'tablet-only'
-  | 'desktop-only'
-  | 'widescreen-only'
-  | 'touch'
-  | 'tablet'
-  | 'desktop'
-  | 'widescreen'
-  | 'fullHd';
 
 export type BulmaContentSize = 'small' | 'medium' | 'large';
 
@@ -32,9 +19,7 @@ export function BulmaContent(props: BulmaContentProps): JSX.Element {
       className={classnames({
         content: true,
         [`is-${props.size ?? 'size'}`]: props.size,
-        [`is-hidden-${
-          props.isHidden?.toLowerCase() ?? 'isHidden'
-        }`]: props.isHidden,
+        ...isHidden(props.isHidden),
       })}
     >
       {props.children}
